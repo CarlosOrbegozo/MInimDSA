@@ -492,3 +492,141 @@
 2018-11-16 11:43:12 INFO  MyBikeImpl:94 - getting bikes from user: user1
 2018-11-16 11:43:12 INFO  MyBikeImpl:103 - done
 2018-11-16 11:43:12 INFO  MyBikeImpl:136 - DB cleared
+2018-11-16 11:51:04 INFO  MyBikeImpl:33 - adding user...
+2018-11-16 11:51:04 INFO  MyBikeImpl:35 - created user: Juan
+2018-11-16 11:51:04 INFO  MyBikeImpl:40 - adding Station...
+2018-11-16 11:51:04 INFO  MyBikeImpl:42 - added station: Station1
+2018-11-16 11:51:04 INFO  MyBikeImpl:40 - adding Station...
+2018-11-16 11:51:04 INFO  MyBikeImpl:42 - added station: Station2
+2018-11-16 11:51:04 INFO  MyBikeImpl:115 - getting numStation
+2018-11-16 11:51:04 INFO  MyBikeImpl:121 - getting number of bikes from station: Station1
+2018-11-16 11:51:04 INFO  MyBikeImpl:128 - done
+2018-11-16 11:51:04 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:51:04 DEBUG Station:68 - added bike bike101
+2018-11-16 11:51:04 INFO  MyBikeImpl:53 - bike bike101 added in station Station1
+2018-11-16 11:51:04 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:51:04 DEBUG Station:68 - added bike bike102
+2018-11-16 11:51:04 INFO  MyBikeImpl:53 - bike bike102 added in station Station1
+2018-11-16 11:51:04 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:51:04 DEBUG Station:68 - added bike bike103
+2018-11-16 11:51:04 INFO  MyBikeImpl:53 - bike bike103 added in station Station1
+2018-11-16 11:51:04 INFO  MyBikeImpl:121 - getting number of bikes from station: Station1
+2018-11-16 11:51:04 INFO  MyBikeImpl:128 - done
+2018-11-16 11:51:04 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:51:04 DEBUG Station:68 - added bike bike201
+2018-11-16 11:51:04 INFO  MyBikeImpl:53 - bike bike201 added in station Station2
+2018-11-16 11:51:04 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:51:04 DEBUG Station:68 - added bike bike202
+2018-11-16 11:51:04 INFO  MyBikeImpl:53 - bike bike202 added in station Station2
+2018-11-16 11:51:04 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:51:04 DEBUG Station:68 - added bike bike203
+2018-11-16 11:51:04 INFO  MyBikeImpl:53 - bike bike203 added in station Station2
+2018-11-16 11:51:04 INFO  MyBikeImpl:121 - getting number of bikes from station: Station2
+2018-11-16 11:51:04 INFO  MyBikeImpl:128 - done
+2018-11-16 11:51:04 INFO  MyBikeImpl:40 - adding Station...
+2018-11-16 11:51:04 INFO  MyBikeImpl:42 - added station: Station3
+2018-11-16 11:51:04 INFO  MyBikeImpl:115 - getting numStation
+2018-11-16 11:51:04 INFO  MyBikeImpl:121 - getting number of bikes from station: Station3
+2018-11-16 11:51:04 INFO  MyBikeImpl:128 - done
+2018-11-16 11:51:04 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:51:04 DEBUG Station:68 - added bike bike1
+2018-11-16 11:51:04 INFO  MyBikeImpl:53 - bike bike1 added in station Station3
+2018-11-16 11:51:04 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:51:04 DEBUG Station:68 - added bike bike2
+2018-11-16 11:51:04 INFO  MyBikeImpl:53 - bike bike2 added in station Station3
+2018-11-16 11:51:04 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:51:04 DEBUG Station:68 - added bike bike3
+2018-11-16 11:51:04 INFO  MyBikeImpl:53 - bike bike3 added in station Station3
+2018-11-16 11:51:04 INFO  MyBikeImpl:136 - DB cleared
+2018-11-16 11:55:32 INFO  MyBikeImpl:33 - adding user...
+2018-11-16 11:55:32 INFO  MyBikeImpl:35 - created user: Juan
+2018-11-16 11:55:32 INFO  MyBikeImpl:40 - adding Station...
+2018-11-16 11:55:32 INFO  MyBikeImpl:42 - added station: Station1
+2018-11-16 11:55:32 INFO  MyBikeImpl:40 - adding Station...
+2018-11-16 11:55:32 INFO  MyBikeImpl:42 - added station: Station2
+2018-11-16 11:55:32 INFO  MyBikeImpl:115 - getting numStation
+2018-11-16 11:55:32 INFO  MyBikeImpl:121 - getting number of bikes from station: Station1
+2018-11-16 11:55:32 INFO  MyBikeImpl:128 - done
+2018-11-16 11:55:32 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:55:32 DEBUG Station:68 - added bike bike101
+2018-11-16 11:55:32 INFO  MyBikeImpl:53 - bike bike101 added in station Station1
+2018-11-16 11:55:32 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:55:32 DEBUG Station:68 - added bike bike102
+2018-11-16 11:55:32 INFO  MyBikeImpl:53 - bike bike102 added in station Station1
+2018-11-16 11:55:32 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:55:32 DEBUG Station:68 - added bike bike103
+2018-11-16 11:55:32 INFO  MyBikeImpl:53 - bike bike103 added in station Station1
+2018-11-16 11:55:32 INFO  MyBikeImpl:121 - getting number of bikes from station: Station1
+2018-11-16 11:55:32 INFO  MyBikeImpl:128 - done
+2018-11-16 11:55:32 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:55:32 DEBUG Station:68 - added bike bike201
+2018-11-16 11:55:32 INFO  MyBikeImpl:53 - bike bike201 added in station Station2
+2018-11-16 11:55:32 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:55:32 DEBUG Station:68 - added bike bike202
+2018-11-16 11:55:32 INFO  MyBikeImpl:53 - bike bike202 added in station Station2
+2018-11-16 11:55:32 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:55:32 DEBUG Station:68 - added bike bike203
+2018-11-16 11:55:32 INFO  MyBikeImpl:53 - bike bike203 added in station Station2
+2018-11-16 11:55:32 INFO  MyBikeImpl:121 - getting number of bikes from station: Station2
+2018-11-16 11:55:32 INFO  MyBikeImpl:128 - done
+2018-11-16 11:55:32 INFO  MyBikeImpl:40 - adding Station...
+2018-11-16 11:55:32 INFO  MyBikeImpl:42 - added station: Station3
+2018-11-16 11:55:32 INFO  MyBikeImpl:115 - getting numStation
+2018-11-16 11:55:32 INFO  MyBikeImpl:121 - getting number of bikes from station: Station3
+2018-11-16 11:55:32 INFO  MyBikeImpl:128 - done
+2018-11-16 11:55:32 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:55:32 DEBUG Station:68 - added bike bike1
+2018-11-16 11:55:32 INFO  MyBikeImpl:53 - bike bike1 added in station Station3
+2018-11-16 11:55:32 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:55:32 DEBUG Station:68 - added bike bike2
+2018-11-16 11:55:32 INFO  MyBikeImpl:53 - bike bike2 added in station Station3
+2018-11-16 11:55:32 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:55:32 DEBUG Station:68 - added bike bike3
+2018-11-16 11:55:32 INFO  MyBikeImpl:53 - bike bike3 added in station Station3
+2018-11-16 11:55:32 INFO  MyBikeImpl:136 - DB cleared
+2018-11-16 11:56:47 INFO  MyBikeImpl:33 - adding user...
+2018-11-16 11:56:47 INFO  MyBikeImpl:35 - created user: Juan
+2018-11-16 11:56:47 INFO  MyBikeImpl:40 - adding Station...
+2018-11-16 11:56:47 INFO  MyBikeImpl:42 - added station: Station1
+2018-11-16 11:56:47 INFO  MyBikeImpl:40 - adding Station...
+2018-11-16 11:56:47 INFO  MyBikeImpl:42 - added station: Station2
+2018-11-16 11:56:47 INFO  MyBikeImpl:115 - getting numStation
+2018-11-16 11:56:47 INFO  MyBikeImpl:121 - getting number of bikes from station: Station1
+2018-11-16 11:56:47 INFO  MyBikeImpl:128 - done
+2018-11-16 11:56:47 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:56:47 DEBUG Station:68 - added bike bike101
+2018-11-16 11:56:47 INFO  MyBikeImpl:53 - bike bike101 added in station Station1
+2018-11-16 11:56:47 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:56:47 DEBUG Station:68 - added bike bike102
+2018-11-16 11:56:47 INFO  MyBikeImpl:53 - bike bike102 added in station Station1
+2018-11-16 11:56:47 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:56:47 DEBUG Station:68 - added bike bike103
+2018-11-16 11:56:47 INFO  MyBikeImpl:53 - bike bike103 added in station Station1
+2018-11-16 11:56:47 INFO  MyBikeImpl:121 - getting number of bikes from station: Station1
+2018-11-16 11:56:47 INFO  MyBikeImpl:128 - done
+2018-11-16 11:56:47 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:56:47 DEBUG Station:68 - added bike bike201
+2018-11-16 11:56:47 INFO  MyBikeImpl:53 - bike bike201 added in station Station2
+2018-11-16 11:56:47 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:56:47 DEBUG Station:68 - added bike bike202
+2018-11-16 11:56:47 INFO  MyBikeImpl:53 - bike bike202 added in station Station2
+2018-11-16 11:56:47 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:56:47 DEBUG Station:68 - added bike bike203
+2018-11-16 11:56:47 INFO  MyBikeImpl:53 - bike bike203 added in station Station2
+2018-11-16 11:56:47 INFO  MyBikeImpl:121 - getting number of bikes from station: Station2
+2018-11-16 11:56:47 INFO  MyBikeImpl:128 - done
+2018-11-16 11:56:47 INFO  MyBikeImpl:40 - adding Station...
+2018-11-16 11:56:47 INFO  MyBikeImpl:42 - added station: Station3
+2018-11-16 11:56:47 INFO  MyBikeImpl:115 - getting numStation
+2018-11-16 11:56:47 INFO  MyBikeImpl:121 - getting number of bikes from station: Station3
+2018-11-16 11:56:47 INFO  MyBikeImpl:128 - done
+2018-11-16 11:56:47 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:56:47 DEBUG Station:68 - added bike bike1
+2018-11-16 11:56:47 INFO  MyBikeImpl:53 - bike bike1 added in station Station3
+2018-11-16 11:56:47 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:56:47 DEBUG Station:68 - added bike bike2
+2018-11-16 11:56:47 INFO  MyBikeImpl:53 - bike bike2 added in station Station3
+2018-11-16 11:56:47 INFO  MyBikeImpl:47 - adding bike...
+2018-11-16 11:56:47 DEBUG Station:68 - added bike bike3
+2018-11-16 11:56:47 INFO  MyBikeImpl:53 - bike bike3 added in station Station3
+2018-11-16 11:56:47 INFO  MyBikeImpl:136 - DB cleared
