@@ -9,11 +9,12 @@ public class MyBikeImpl implements MyBike {
     final static Logger logger = Logger.getLogger(MyBikeImpl.class.getName());
     private static MyBike instance;
     private HashMap<String,User> userList;
-    private List<Station> stationList;
+    private Station [] stationList;
+    public static final int S = 10;
 
     private MyBikeImpl(){
         userList = new HashMap<>();
-        stationList= new ArrayList<>();
+        stationList = new Station[S];
     }
     public static MyBike getInstance(){
         if(instance==null){
@@ -38,18 +39,36 @@ public class MyBikeImpl implements MyBike {
     @Override
     public void addStation(String idStation, String description, int max, double lat, double lon) {
         logger.info("adding Station...");
-        stationList.add(new Station(idStation,description,max,lat,lon));
+        int count = 0;
+        for(Station s:stationList){
+            if(s!=null)count++;
+        }
+        if(count<=S){
+            stationList[count]=new Station(idStation,description,max,lat,lon);
+        }
+
         logger.info("added station: "+ idStation);
     }
 
     @Override
     public void addBike(String idBike, String description, double kms, String idStation) throws StationFullException, StationNotFoundException {
         logger.info("adding bike...");
+        boolean b = false;
+        int count = 0;
         for(Station s:stationList){
-            if(s.getIdStation().equals(idStation)){
-                s.addBike(new Bike(idBike,description,kms));
+            if(s!=null)count++;
+        }
+        for(int i =0;i<count;i++){
+            if(stationList[i].getIdStation().equals(idStation)){
+                b=true;
+                if(stationList[i].getListBikes().size()==stationList[i].getMax()){
+                    throw new StationFullException();
+                }
+                stationList[i].addBike(new Bike(idBike,description,kms));
+
             }
         }
+        if(!b)throw new StationNotFoundException();
         logger.info("bike "+idBike+" added in station " + idStation);
     }
 
@@ -57,15 +76,23 @@ public class MyBikeImpl implements MyBike {
     public List<Bike> bikesByStationOrderByKms(String idStation) throws StationNotFoundException {
         logger.info("sorting bikes from station: "+idStation);
         LinkedList<Bike> listBikesSorted = new LinkedList<>();
-        for(Station s: stationList){
-            if(s.getIdStation().equals(idStation)){
-                List<Bike> bikes = s.getListBikes();
+        boolean bb = false;
+        int count = 0;
+        for(Station s:stationList){
+            if(s!=null)count++;
+        }
+        for(int i =0;i<count;i++){
+            if(stationList[i].getIdStation().equals(idStation)){
+                bb=true;
+                List<Bike> bikes = stationList[i].getListBikes();
                 for(Bike b : bikes){
                     listBikesSorted.add(b);
                 }
                 Collections.sort(listBikesSorted,(b1,b2)->(int)(100*b1.getKms()-100*b2.getKms()));
             }
         }
+
+        if(!bb)throw new StationNotFoundException();
         logger.info("Bikes sorted by Km of Station: "+idStation );
         return listBikesSorted;
     }
@@ -74,16 +101,25 @@ public class MyBikeImpl implements MyBike {
     public Bike getBike(String stationId, String userId) throws UserNotFoundException, StationNotFoundException {
         logger.info("getting a bike of User: "+userId+"from station: "+ stationId);
         Bike result = null;
-        for(Station s: stationList){
-           if(s.getIdStation().equals(stationId)){
-               result = s.getListBikes().pop();
+        int count = 0;
+        for(Station s:stationList){
+            if(s!=null)count++;
+        }
+        for(int i =0;i<count;i++){
+           if(stationList[i].getIdStation().equals(stationId)){
+               result = stationList[i].getListBikes().pop();
            }
         }
+        //
+        if (result==null) throw new StationNotFoundException();
+        boolean b= false;
         for(User u : getUserList2()){
             if(u.getIdUser().equals(userId)){
                 u.addBike(result);
+                b=true;
             }
         }
+        if(!b)throw new UserNotFoundException();
         logger.info("got it");
         return result;
 
@@ -100,6 +136,10 @@ public class MyBikeImpl implements MyBike {
                 listBikesUser = u.getBikesUserList();
             }
         }
+        //
+        if(listBikesUser.isEmpty()){
+            throw new UserNotFoundException();
+        }
         logger.info("done");
         return listBikesUser;
     }
@@ -113,25 +153,46 @@ public class MyBikeImpl implements MyBike {
     @Override
     public int numStations() {
         logger.info("getting numStation");
-        return stationList.size();
+        int count = 0;
+        for(int i =0;i<S;i++){
+            if(stationList[i]!=null){
+                count++;
+            }
+        }
+        return count;
     }
 
     @Override
     public int numBikes(String idStation) throws StationNotFoundException {
-        logger.info("getting number of bikes from station: "+idStation);
         int result=0;
-        for(Station s: stationList){
-            if(s.getIdStation().equals(idStation)){
-                result =s.getListBikes().size();
+        int count = 0;
+        boolean b=false;
+        logger.info("getting number of bikes from station: "+idStation);
+
+        for(Station s:stationList){
+            if(s!=null)count++;
+        }
+
+        for(int i =0;i<count;i++){
+            if(stationList[i].getIdStation().equals(idStation)){
+                result =stationList[i].getListBikes().size();
+                b=true;
             }
         }
+        //
+        if(!b){
+            throw new StationNotFoundException();
+        }
+
         logger.info("done");
+
+
         return result;
     }
 
     @Override
     public void clear() {
-        this.stationList.clear();
+        Arrays.fill(stationList,null);
         this.userList.clear();
         logger.info("DB cleared");
 

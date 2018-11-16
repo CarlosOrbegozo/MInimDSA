@@ -10,10 +10,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 
 @Api(value="/BikesService", description = "Endpoint to Bike Service")
@@ -49,16 +46,16 @@ public class BikesService {
             @ApiResponse(code = 201, message = "Successful", response = Bike.class, responseContainer = "List of Orders"),
             @ApiResponse(code = 404, message = "User not found")
     })
-    @Path("/{user}")
+    @Path("/{user}/bikes")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUser(@PathParam("user") String user) {
-        List<Bike> listOrders;//pedidos
+        List<Bike> listBikes;
         try {
-            listOrders = this.mb.bikesByUser(user);
-            for(Bike o:listOrders) {
+            listBikes = this.mb.bikesByUser(user);
+            for(Bike o:listBikes) {
                 log.info("Bike: " + o.toString());
             }
-            GenericEntity<List<Bike>> entity = new GenericEntity<List<Bike>>(listOrders){};
+            GenericEntity<List<Bike>> entity = new GenericEntity<List<Bike>>(listBikes){};
             return Response.status(201).entity(entity).build();
         } catch (Exception e) {
             e.printStackTrace();
@@ -72,13 +69,20 @@ public class BikesService {
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful", response = Bike.class, responseContainer = "List of Products")
     })
-    @Path("/sortedBikes")
+    @Path("/sortedBikes/{station}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getBikesSortedBykMS(@PathParam("stationid") String station) throws StationNotFoundException {
-        List<Bike> listproducts  = this.mb.bikesByStationOrderByKms(station);
+    public Response getBikesSortedBykMS(@PathParam("stationId") String station) throws StationNotFoundException {
+        List<Bike> listSortedBikes = new LinkedList<>();
+        try {
+            listSortedBikes = this.mb.bikesByStationOrderByKms(station);
+        }catch(StationNotFoundException e){
+            e.printStackTrace();
+        }
 
-        GenericEntity<List<Bike>> entity = new GenericEntity<List<Bike>>(listproducts){};
+        GenericEntity<List<Bike>> entity = new GenericEntity<List<Bike>>(listSortedBikes){};
         return Response.status(201).entity(entity).build();
+
+
     }
 
     @POST
@@ -86,10 +90,10 @@ public class BikesService {
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful")
     })
-    @Path("/adduser/{user}")
+    @Path("/adduser")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addUser(User u){
-        mb.addUser(u.getIdUser(),u.getName(),u.getSurname());
+    public Response addUser(User user){
+        mb.addUser(user.getIdUser(),user.getName(),user.getSurname());
 
         return Response.status(201).build();
     }
@@ -99,9 +103,9 @@ public class BikesService {
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful")
     })
-    @Path("/addBike")
+    @Path("/addBike/{stationId}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addBike(Bike p,String stationId) throws StationFullException, StationNotFoundException {
+    public Response addBike(Bike p,@PathParam("stationId") String stationId) throws StationFullException, StationNotFoundException {
         mb.addBike(p.getBikeId(),p.getDescription(),p.getKms(),stationId);
 
         return Response.status(201).build();
@@ -115,8 +119,8 @@ public class BikesService {
     })
     @Path("/addStation")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addStation(Station p){
-        mb.addStation(p.getIdStation(),p.getDescription(),p.getMax(),p.getLat(),p.getLon());
+    public Response addStation(Station station){
+        mb.addStation(station.getIdStation(),station.getDescription(),station.getMax(),station.getLat(),station.getLon());
 
         return Response.status(201).build();
     }
@@ -127,9 +131,9 @@ public class BikesService {
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful", response = Bike.class, responseContainer = "Order")
     })
-    @Path("/serveanorder")
+    @Path("/getBike/{userID}/{stationId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getBike(String userID, String stationId) throws UserNotFoundException, StationNotFoundException {
+    public Response getBike(@PathParam("userId") String userID, @PathParam("stationId") String stationId) throws UserNotFoundException, StationNotFoundException {
         Bike order = mb.getBike(userID,stationId);
 
         return Response.status(201).entity(order).build();
